@@ -1,29 +1,57 @@
-# Olympics-Data-Analysis
-The Olympic Games are one of the most globally celebrated sporting events, showcasing athletic excellence, national pride, and long-term sports development. Understanding Olympic performance through data provides valuable insights into trends, dominant countries, athlete achievements, and changes in global sports participation. 
+# 🏅 Olympics Intelligence System 
 
-# Dataset Description
-The uploaded dataset Summer-Olympic-medals-1976-to-2008.csv contains detailed records of
-athletes who won medals across 9 Summer Olympic Games.
-## Key Columns
-* Year – Olympic year (1976 → 2008)
-* City – Host city
-* Sport – Sport category (e.g., Athletics, Swimming)
-* Discipline – Specific event category
-* Athlete – Name of athlete
-* Country – Country the athlete represents
-* Gender – Male/Female
-* Event – Event name
-* Medal – Gold, Silver, Bronze
+## 📁 Project Structure
 
-# Key Insights (Summary)
-* USA, USSR, China, and Germany dominate medal counts across all years.
-* Athletics and Swimming are the most medal-rich sports.
-* Women’s participation increased sharply from 1990s onwards.
-* Some countries specialize in certain sports, e.g., China in gymnastics, Russia in athletics.
-* Host countries often perform better due to home advantage.
-* Predicting medals is possible at country/sport level, but not precise for individuals.
+```
+Olympics-Analysis/
+├── app.py                                    ← Streamlit Dashboard (8 tabs)
+├── Olympics_Data_Analysis.ipynb              ←  Added Chatbot, CV & ML sections
+├── Summer-Olympic-medals-1976-to-2008.csv    ← Dataset (15,433 rows × 11 cols)
+├── README.md                                 ← This file
+│
+├── chatbot/                  ← Olympics Q&A Chatbot
+│   └── olympics_chatbot.py
+│
+├── cv_module/                ← Computer Vision module
+│   └── sports_cv.py
+│
+├── models/                   ← ML Models
+│   └── olympics_models.py    (MedalPredictor · CountryScorer · SportDomination)
+```
 
-# Conclusion
-The Summer Olympics dataset provides deep insights into global sports performance between 1976–2008. The analysis reveals patterns of dominance, sport-specific strengths, gender
-participation trends, and the rising influence of emerging nations. While medal prediction through machine learning offers limited accuracy at the athlete level, it effectively highlights broader performance trends.
-This study demonstrates how data analysis helps understand sporting excellence and provides valuable recommendations for future Olympic planning.
+## 🚀 How to Run
+
+```bash
+pip install streamlit pandas numpy plotly scikit-learn opencv-python pillow matplotlib seaborn
+streamlit run app.py
+```
+
+## 📊 Dashboard Tabs 
+
+| # | Tab | Description |
+|---|-----|-------------|
+| 1 | 🏅 Overview | KPIs, medals by year, type donut, heatmap, host cities |
+| 2 | 🌍 Countries | Leaderboard, choropleth map, stacked medal breakdown |
+| 3 | 🏃 Athletes | Top athletes bar, athlete×sport heatmap, athlete search |
+| 4 | 🏊 Sports | Sport trends, country×sport heatmap, domination table |
+| 5 | 👫 Gender Trends | Participation over years, women's share trend |
+| 6 | 🔮 ML Predictor | RF + GBM medal type predictor with probability bars |
+| 7 | 👁️ CV Analysis | Sports image analyser: mood, blur, crowd, ring colour |
+| 8 | 💬 Chatbot | Olympics Q&A assistant with quick buttons |
+
+## 📓 Notebook Updates
+
+| Section | Content |
+|---------|---------|
+| Original (1–34) | Existing EDA cells (fixed Colab upload → portable path) |
+| 35–36 | 💬 Chatbot init + demo conversation |
+| 37–39 | 👁️ CV Analysis: synthetic test, full analysis, filter gallery |
+| 40–45 | 🔮 ML: MedalPredictor training, predictions, CountryScorer, SportDomination, charts |
+
+## 🔧 Changes
+- ✅ Streamlit Dashboard `app.py` — 8 fully interactive tabs
+- ✅ `chatbot/olympics_chatbot.py` — Rule-based NLP, 12 query types
+- ✅ `cv_module/sports_cv.py` — Motion blur, crowd density, Olympic ring colour, 10 filters
+- ✅ `models/olympics_models.py` — RF+GBM Medal Predictor, CountryScorer, SportDomination
+- ✅ `chatbot/`, `cv_module/`, `models/`
+- ✅ Notebook: 12 new cells, fixed Colab dependency
